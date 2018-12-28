@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <textarea id='first'></textarea>
+    <textarea id='second'></textarea>
+    <textarea id='third'></textarea>
+    <textarea id='fourth'></textarea>
+    <textarea id='fifth'></textarea> -->
+    <a href='#' title="title" data-foo="dataFoo" class="yes" style="margin:0;" foo="boo"></a>
+
+    <script>
+        console.log(window.document.constructor);
+        var d = document;
+        console.log('title = '+d.title);
+        console.log('url = '+d.URL);
+        console.log('reference = '+ d.referrer);
+        console.log('lastModified = '+d.lastModified);
+        // get focus here
+        var textarea = document.getElementById('second').focus();
+
+        // -- lopping throught all of the keys of document object -- 
+        console.log(document.defaultView);
+        var query = document.querySelector('a').constructor;
+        for (var p in document) {
+            if (!document.hasOwnProperty(p)) {
+                console.log(p);
+            }
+        }
+        //-- creating new dom element 
+        var textArea =  document.createElement('textarea');
+        document.body.appendChild(textArea);
+        // looping throught all the attributes of the element
+        var attr = document.querySelector('a').attributes;
+        for(var i=0; i<attr.length; i++) {
+            console.log(atrr[i].nodeName+' =,'+attr[i].nodeValue);
+        }
+    </script>
+</body>
+</html>

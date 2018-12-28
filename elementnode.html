@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="#" id='sagar' title='this is title' style='color: red; font-size: 12px'>This is link</a>
+    <div class="big brown bear" data-bar-bar='bar' data-foo-foo='foo' data-hide='dsdskds'></div>
+    <script>
+
+        // // nodeName and nodeValue
+
+        //nodeName and nodeValue 
+        const nodeSelector = function () {
+            var tagName = document.querySelector('a');
+            console.log(document.querySelector('a').tagName, 'tagName');
+            console.log(document.querySelector('a').nodeName, 'nodeName', document.querySelector('a').nodeValue, 'nodeValue');
+            // query selector 
+            console.log(document.querySelector('a'));
+            var attr = document.querySelector('a').attributes;
+            for (var i = 0; i < attr.length; i++) {
+                console.log(attr[i].nodeName + ' = ' + attr[i].nodeValue);
+            }
+        }
+
+        // setting and resetting  
+        const attrSelection = function (params) {
+            var aAnchor = document.querySelector('a');
+            aAnchor.removeAttribute('href');
+            aAnchor.removeAttribute('id');
+            for (var i = 0; i < aAnchor.attributes; i++) {
+                console.log(aAnchor.attributes[i].nodeName + ' = ' + aAnchor.attributes[i].nodeValue);
+            }
+            //setting attribute 
+            aAnchor.setAttribute('id', 'simple');
+            aAnchor.setAttribute('href', 'dssdkds');
+            for (var i = 0; i < aAnchor.attributes.length; i++) {
+                console.log(aAnchor.attributes[i].nodeName + ' = ' + aAnchor.attributes[i].nodeValue);
+            }
+            //getting attibute 
+            console.log(aAnchor.getAttribute('id'));
+            console.log(aAnchor.getAttribute('href'));
+            //checking attribute 
+            console.log(aAnchor.hasAttribute('id'));
+            console.log(aAnchor.hasAttribute('href'));
+        }
+
+
+        const classSelection = function() {
+            // gettting classList
+            var divElement = document.querySelector('div');
+            var classList = divElement.classList;
+            var className = divElement.className;
+            // console.log(classList);
+            for(var i=0; i<classList.length; i++) {
+                console.log(classList[i]);
+            }
+            //adding new class
+            divElement.classList.add('simple');
+            divElement.classList.add('again');
+            divElement.classList.add('other');
+            //toggling new class
+            divElement.classList.toggle('simple');
+            console.log(divElement.className);
+            divElement.classList.toggle('simple');
+            console.log(divElement.className);
+            //checking if class attribute value containes specific value 
+            console.log(divElement.classList.contains('simple')); 
+            console.log(divElement.classList.contains('again'));
+            console.log(divElement.classList.contains('other'));
+            console.log(divElement.classList.contains('jksdjkdsds'));
+        }   
+
+        const dataSetting = function () {
+            var divElement = document.querySelector('div');
+            console.log(divElement.dataset);
+            divElement.dataset.hide = 'somthing';
+            console.log(divElement.dataset.hide);
+        }
+
+
+        // attrSelection();
+        // classSelection();
+        dataSetting();
+    </script>
+</body>
+
+</html>
