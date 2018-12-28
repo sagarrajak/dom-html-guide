@@ -11,10 +11,28 @@
 <body>
     <a href="#" id='sagar' title='this is title' style='color: red; font-size: 12px'>This is link</a>
     <div class="big brown bear" data-bar-bar='bar' data-foo-foo='foo' data-hide='dsdskds'></div>
+    <ul>
+        <li class="first">first</li>
+        <li class="first">second</li>
+        <li>third</li>
+        <li id='last'>fourth</li>
+
+        <!-- select a div as the context to run the selecting methods only on the time -->
+        <div id='divContext'>
+            <ul>
+                <li class="inside">first</li>
+                <li class="inside">second</li>
+                <li class="inside">fourth</li>
+                <li class="inside">fifth</li>
+            </ul>
+        </div>
+        <div id='addElement'></div>
+    </ul>
+    <!-- <p class="first"></p>
+    <a class="first" href="#"></a> -->
     <script>
 
-        // // nodeName and nodeValue
-
+        //nodeName and nodeValue
         //nodeName and nodeValue 
         const nodeSelector = function () {
             var tagName = document.querySelector('a');
@@ -51,13 +69,13 @@
         }
 
 
-        const classSelection = function() {
+        const classSelection = function () {
             // gettting classList
             var divElement = document.querySelector('div');
             var classList = divElement.classList;
             var className = divElement.className;
             // console.log(classList);
-            for(var i=0; i<classList.length; i++) {
+            for (var i = 0; i < classList.length; i++) {
                 console.log(classList[i]);
             }
             //adding new class
@@ -70,11 +88,11 @@
             divElement.classList.toggle('simple');
             console.log(divElement.className);
             //checking if class attribute value containes specific value 
-            console.log(divElement.classList.contains('simple')); 
+            console.log(divElement.classList.contains('simple'));
             console.log(divElement.classList.contains('again'));
             console.log(divElement.classList.contains('other'));
             console.log(divElement.classList.contains('jksdjkdsds'));
-        }   
+        }
 
         const dataSetting = function () {
             var divElement = document.querySelector('div');
@@ -83,10 +101,48 @@
             console.log(divElement.dataset.hide);
         }
 
+        /*
+         * selecting element using id, using query
+         */
+        const nodeSelection = function () {
+            var firstli = document.querySelector('li').textContent;
+            console.log(firstli);
+            var lastli = document.getElementById('last').textContent;
+            console.log(lastli);
+            //Selecting creating a list
+            var lisList = document.querySelectorAll('li');
+            lisList.forEach((item, index)=> {
+                console.log('textContent',item.textContent,'index', index);
+            });
+            var queryList = document.getElementsByClassName('first');
+            //Seleting in the given 
+            var divScope = document.getElementById('divContext');
+            console.log(divScope.querySelector('ul'));
+            console.log(divScope.querySelectorAll('li'));
+            console.log(divScope.querySelectorAll('li').length);
+            for (var i=0; i < divScope.querySelectorAll('li').length; i++) {
+                var item = divScope.querySelectorAll('li')[i];
+                console.log(item.textContent);
+                console.log(item.classList);
+                console.log(item.className); 
+            }
+            //all elements with class name 
+            var className = document.getElementsByClassName('inside');
+            console.log(className);
+        }   
+
+        const createElement = function() {
+            var h1Element = document.createElement('h1');
+            h1Element.textContent = 'This is added thought code';
+            var bodyContent = document.getElementById('addElement');
+            bodyContent.appendChild(h1Element);
+        }
 
         // attrSelection();
         // classSelection();
-        dataSetting();
+        // dataSetting();
+        // nodeSelection();
+        createElement();
     </script>
 </body>
 
